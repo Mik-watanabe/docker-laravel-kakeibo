@@ -1,3 +1,65 @@
-h1 {
-  color: aqua;
+@import "./variables";
+
+// common css
+.c-form {
+  padding: 20px;
+  width: 500px;
+  border-radius: 3px;
+  background: $white;
+  border: $outline;
+}
+.c-form-heading {
+  padding-bottom: 16px;
+  font-size: $heading;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border-bottom: $outline;
+}
+.c-form-content {
+  padding: 48px;
+}
+.c-form-group {
+  margin-bottom: 16px;
+}
+.c-label {
+  margin-bottom: 8px;
+  padding-left: 4px;
+  border-left: 4px solid #f9e13f;
+}
+.c-form-input {
+  display: block;
+  width: 100%;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  border: $outline;
+  border-radius: 3px;
+  background: $gray;
+}
+.c-form-btn-wrapper {
+  margin-top: 32px;
+}
+.c-btn {
+  width: 100%;
+  padding: 6px 12px;
+  text-align: center;
+  color: $white;
+  background: $orange;
+  border-radius: 3px;
+
+  &:hover {
+    background: darken($orange, 8%);
+  }
+}
+.c-form-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: $blue;
+
+  &:hover {
+    color: $blue !important;
+    text-decoration: underline;
+  }
 }

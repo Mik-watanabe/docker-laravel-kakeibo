@@ -1,1 +1,10 @@
-
+.app-only-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 96px;
+  background: #F2F6F6;
+}
+.app-only-container .icon-img {
+  width: 240px;
+}

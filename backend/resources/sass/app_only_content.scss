@@ -1,0 +1,13 @@
+@import "./variables";
+
+.app-only-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 96px;
+  background: $bgColor;
+
+  .icon-img {
+    width: 240px;
+  }
+}
