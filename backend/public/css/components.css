@@ -8,3 +8,14 @@
 .app-only-container .icon-img {
   width: 240px;
 }
+
+.login-container .form-check {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+.login-container .form-check label {
+  margin-bottom: 0;
+  padding-left: 5px;
+  font-size: 14px;
+}
