@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SpendingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ Route::get('/', function () {
 Route::get('scss', function () {
     return view('test');
 });
+// 支出トップ
+Route::get('/spending', [SpendingController::class, 'show'])
+    ->name('spendings');
 
 Auth::routes();
 

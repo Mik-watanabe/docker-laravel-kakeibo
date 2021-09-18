@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Spending;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class SpendingController extends Controller
 {
@@ -41,21 +44,42 @@ class SpendingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Spendings  $spendings
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Spending  $spending
+     * @return \Illuminate\View\View
      */
-    public function show(Spendings $spendings)
+    public function show(): View
     {
-        //
+        $userId = Auth::id();
+        $spendings = Spending::where('user_id', $userId)
+            ->with(['category'])
+            ->orderBy('accrual_date')
+            ->get();
+
+        $rankings = $spendings?->groupBy('category.name')
+            ->sortByDesc(function ($spending) {
+                return $spending->sum('amount');
+            })
+        ->take(3);
+
+        $categories = Category::where('user_id', $userId)
+            ->get();
+        $categoryId = null;
+
+        return view('spendings.index', [
+            'spendings' => $spendings,
+            'rankings' => $rankings,
+            'categories' => $categories,
+            'categoryId' => $categoryId
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Spendings  $spendings
+     * @param  \App\Models\Spending  $spending
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spendings $spendings)
+    public function edit(Spending $spending)
     {
         //
     }
@@ -64,10 +88,10 @@ class SpendingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Spendings  $spendings
+     * @param  \App\Models\Spending  $spending
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spendings $spendings)
+    public function update(Request $request, Spending $spending)
     {
         //
     }
@@ -75,10 +99,10 @@ class SpendingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Spendings  $spendings
+     * @param  \App\Models\Spending  $spending
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spendings $spendings)
+    public function destroy(Spending $spending)
     {
         //
     }
