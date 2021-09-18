@@ -47,10 +47,17 @@ class SpendingController extends Controller
      * @param  \App\Models\Spending  $spending
      * @return \Illuminate\View\View
      */
-    public function show(): View
+    public function show(Request $request): View
     {
+        $requests = array_filter($request->all());
         $userId = Auth::id();
-        $spendings = Spending::where('user_id', $userId)
+        $categories = Category::where('user_id', $userId)->get();
+        $builder = Spending::query();
+        // 検索している時
+        if (!empty($requests)) {
+            $builder = $builder->OfType($requests);
+        }
+        $spendings = $builder->where('user_id', $userId)
             ->with(['category'])
             ->orderBy('accrual_date')
             ->get();
@@ -61,15 +68,13 @@ class SpendingController extends Controller
             })
         ->take(3);
 
-        $categories = Category::where('user_id', $userId)
-            ->get();
-        $categoryId = null;
-
         return view('spendings.index', [
             'spendings' => $spendings,
             'rankings' => $rankings,
             'categories' => $categories,
-            'categoryId' => $categoryId
+            'categoryId' => $requests['category_id'] ?? null,
+            'dateStart' => $requests['date_start'] ?? null,
+            'dateFinish' => $requests['date_finish'] ?? null
         ]);
     }
 

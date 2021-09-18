@@ -148,6 +148,9 @@
   background-color: #E9EEEF;
   border-radius: 4px;
 }
+.spending-top-container .search-form-input.select {
+  min-width: 200px;
+}
 .spending-top-container .search-form-btn {
   height: 30px;
   width: -webkit-fit-content;

@@ -27,12 +27,12 @@
           @endif
     </div>
     <a href="./create.php" class="link-register">支出を登録する</a>
-    <form action="./index.php" class="search-form" method="GET">
+    <form action="{{ route('spendings') }}" class="search-form" method="GET">
         <h2 class="search-form-title">絞り込み検索<a href="{{ route('spendings')}}" class="search-form-title-link">元に戻す</a></h2>
         <div class="search-form-input-list">
           <label>
             <span class="search-form-heading">カテゴリ：</span>
-            <select name="category_id" class="search-form-input">
+            <select name="category_id" class="search-form-input select">
               @if (!$categories)
                 <option selected disabled>カテゴリーが登録されていません</option>
               @else
@@ -47,9 +47,9 @@
           </label>
           <label>
             <span class="search-form-heading">日付：</span>
-            <input type="date" name="date_start" class="search-form-input" />
+            <input type="date" name="date_start" class="search-form-input" @if(!is_null($dateStart)) value="{{ $dateStart }}" @endif/>
             <span class="deco">　〜　</span>
-            <input type="date" name="date_finish" class="search-form-input" />
+            <input type="date" name="date_finish" class="search-form-input" @if(!is_null($dateFinish)) value="{{ $dateFinish }}" @endif/>
           </label>
           <div>
               <button class="c-btn search-form-btn">検索</button>
@@ -67,7 +67,7 @@
         <th width="12.5%">編集</th>
         <th width="12.5%">削除</th>
       </tr>
-      @if (!$spendings)
+      @if ($spendings->isEmpty())
         <tr>
           <td>収入は登録されていません</td>
           <td>　　</td>
