@@ -24,6 +24,9 @@ Route::get('scss', function () {
 // 支出トップ
 Route::get('/spending', [SpendingController::class, 'show'])
     ->name('spendings');
+// 支出登録
+Route::get('/spending/register', [SpendingController::class, 'create'])
+    ->name('spendings.register');
 
 Auth::routes();
 

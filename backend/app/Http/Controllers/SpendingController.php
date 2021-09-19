@@ -25,9 +25,9 @@ class SpendingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('spendings.create');
     }
 
     /**
