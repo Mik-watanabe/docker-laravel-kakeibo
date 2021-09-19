@@ -84,7 +84,7 @@
             <td>{{ $spending->amount }}</td>
             <td>{{ $spending->accrualDateForView() }}</td>
             <td><a href="{{ route('spendings.edit', ['spending' => $spending]) }}" class="table-link edit">編集</a></td>
-            <td><a href="" class="table-link delete">削除</a></td>
+            <td><a href="{{ route('spendings.destroy', $spending)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td>
           </tr>
         @endforeach
       @endif

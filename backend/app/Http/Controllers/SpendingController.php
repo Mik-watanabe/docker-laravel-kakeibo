@@ -135,6 +135,10 @@ class SpendingController extends Controller
      */
     public function destroy(Spending $spending)
     {
-        //
+        // 認可機能をあとでつける（Userが同じかどうか）
+        $spending = Spending::find($spending->id);
+        $spending->delete();
+
+        return redirect()->route('spendings');
     }
 }

@@ -34,6 +34,10 @@ Route::get('/spending/edit/{spending}', [SpendingController::class, 'edit'])
 ->name('spendings.edit');
 Route::post('/spending/edit', [SpendingController::class, 'update'])
 ->name('spendings.update');
+//支出削除
+Route::get('/spending/delete/{spending}', [SpendingController::class, 'destroy'])
+->name('spendings.destroy');
+
 
 Auth::routes();
 
