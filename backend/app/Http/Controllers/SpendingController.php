@@ -97,11 +97,15 @@ class SpendingController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Spending  $spending
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function edit(Spending $spending)
+    public function edit(Spending $spending): View
     {
-        //
+        $categories = Category::where('user_id', Auth::id())->get();
+        return view('spendings.edit', [
+            'spending' => $spending,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -111,9 +115,16 @@ class SpendingController extends Controller
      * @param  \App\Models\Spending  $spending
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spending $spending)
+    public function update(SpendingRequest $request)
     {
-        //
+        $spending = Spending::find($request->spending_id);
+        $spending->category_id = $request->category;
+        $spending->name = $request->spending;
+        $spending->amount = $request->amount;
+        $spending->accrual_date = $request->date;
+        $spending->save();
+
+        return redirect()->route('spendings');
     }
 
     /**

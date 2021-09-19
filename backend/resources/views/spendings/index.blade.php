@@ -83,28 +83,10 @@
             <td>{{ $spending->category->name }}</td>
             <td>{{ $spending->amount }}</td>
             <td>{{ $spending->accrualDateForView() }}</td>
-            <td><a href="" class="table-link edit">編集</a></td>
+            <td><a href="{{ route('spendings.edit', ['spending' => $spending]) }}" class="table-link edit">編集</a></td>
             <td><a href="" class="table-link delete">削除</a></td>
           </tr>
         @endforeach
-            {{-- echo '<tr>';
-            echo '<td>' . $spending->name() . '</td>';
-            foreach($spendingCategoryEntities as $category) {
-                if ($category->id()->value() == $spending->categoryId()->value()) {
-                    $categoryName = $category->name();
-                    break;
-                } else {
-                    $categoryName = '未分類';
-                };
-            }
-            echo '<td>' . $categoryName . '</td>';
-            echo '<td>' . $spending->amount()->value() . '</td>';
-            echo '<td>' . $spending->accrualDateForView() . '</td>';
-                echo '<td><a class="edit-link" href="./edit.php?id=' . $spending->id()->value() . '">編集</a></td>';
-                echo '<td><form action="/kakeibo/complete/spendingDelete.php" method="POST"><input type="hidden" name="spending_id" value="' . $spending->id()->value() . '"/><button type="submit">削除</button></form></td>';
-            echo '</tr>';
-        }
-        ?> --}}
       @endif
     </table>
   </div>

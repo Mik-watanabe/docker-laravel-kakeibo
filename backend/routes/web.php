@@ -29,6 +29,11 @@ Route::get('/spending/register', [SpendingController::class, 'create'])
     ->name('spendings.register');
 Route::post('/spending/register', [SpendingController::class, 'store'])
 ->name('spendings.register');
+// 支出編集
+Route::get('/spending/edit/{spending}', [SpendingController::class, 'edit'])
+->name('spendings.edit');
+Route::post('/spending/edit', [SpendingController::class, 'update'])
+->name('spendings.update');
 
 Auth::routes();
 
