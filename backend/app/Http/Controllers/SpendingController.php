@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Http\Requests\SpendingRequest;
+use Illuminate\Http\RedirectResponse;
 
 class SpendingController extends Controller
 {
@@ -40,9 +41,19 @@ class SpendingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SpendingRequest $request)
+    public function store(SpendingRequest $request): RedirectResponse
     {
-        dd($request);
+        $validated = $request->validated();
+
+        $spending = new Spending();
+        $spending->user_id = Auth::id();
+        $spending->category_id = $validated['category'];
+        $spending->name = $validated['spending'];
+        $spending->amount = $validated['amount'];
+        $spending->accrual_date = $validated['date'];
+        $spending->save();
+
+        return redirect()->route('spendings');
     }
 
     /**
