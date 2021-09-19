@@ -17,7 +17,7 @@
 
       <div class="c-form-group">
         <label for="spending" class="c-label">支出名</label>
-        <input id="spending" type="text" class="c-form-input @error('spending') is-invalid @enderror" name="spending" value="{{ old('spending') }}" required autofocus placeholder="支出名" />
+        <input id="spending" type="text" class="c-form-input @error('spending') is-invalid @enderror" name="spending" value="{{ old('spending') }}" autofocus placeholder="支出名" />
 
         @error('spending')
             <span class="invalid-feedback" role="alert">
@@ -28,20 +28,24 @@
 
       <div class="c-form-group">
         <label for="category" class="c-label">カテゴリ</label>
-        <select id="category" name="category" class="c-form-input @error('category') is-invalid @enderror" required>
+        <select id="category" name="category" class="c-form-input @error('category') is-invalid @enderror">
+          @if ($categories->isEmpty())
             <option selected disable>カテゴリーが登録されていません</option>
-          {{-- @else
-              @foreach($categories as $category)
-                <option value="{{ $category->id }}" @if(!is_null($categoryId) && $category->id == $categoryId) selected @endif>{{ $category->name }}</option>
-              @endforeach
-          @endif  --}}
-
-          @error('category')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-          @enderror
+          @else
+            @if (!old('category'))
+              <option selected disabled>カテゴリーを選択してください</option>
+            @endif
+            @foreach($categories as $category)
+              <option value="{{ $category->id }}" @if(old('category') && $category->name == old('category')) selected @endif>{{ $category->name }}</option>
+            @endforeach
+          @endif
         </select>
+        
+        @error('category')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
 
       <div class="c-form-group">

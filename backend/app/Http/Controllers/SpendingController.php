@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Http\Requests\SpendingRequest;
 
 class SpendingController extends Controller
 {
@@ -27,7 +28,10 @@ class SpendingController extends Controller
      */
     public function create(): View
     {
-        return view('spendings.create');
+        $categories = Category::where('user_id', Auth::id())->get();
+        return view('spendings.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -36,9 +40,9 @@ class SpendingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SpendingRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -27,6 +27,8 @@ Route::get('/spending', [SpendingController::class, 'show'])
 // 支出登録
 Route::get('/spending/register', [SpendingController::class, 'create'])
     ->name('spendings.register');
+Route::post('/spending/register', [SpendingController::class, 'store'])
+->name('spendings.register');
 
 Auth::routes();
 

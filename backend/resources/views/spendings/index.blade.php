@@ -37,7 +37,7 @@
                 <option selected disabled>カテゴリーが登録されていません</option>
               @else
                 @if (is_null($categoryId))
-                <option selected disabled>カテゴリーを選択してください</option>
+                  <option selected disabled>カテゴリーを選択してください</option>
                 @endif
                   @foreach($categories as $category)
                     <option value="{{ $category->id }}" @if(!is_null($categoryId) && $category->id == $categoryId) selected @endif>{{ $category->name }}</option>

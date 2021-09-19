@@ -20,7 +20,7 @@ return [
     'alpha_dash'      => ":attributeには、英数字('A-Z','a-z','0-9')とハイフンと下線('-','_')が使用できます。",
     'alpha_num'       => ":attributeには、英数字('A-Z','a-z','0-9')が使用できます。",
     'array'           => ':attributeには、配列を指定してください。',
-    'before'          => ':attributeには、:dateより前の日付を指定してください。',
+    'before'          => '明日以降の日付は指定できません',
     'before_or_equal' => ':attributeには、:date以前の日付を指定してください。',
     'between'         => [
         'numeric' => ':attributeには、:minから、:maxまでの数字を指定してください。',
@@ -145,5 +145,6 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+    ],
 ];
