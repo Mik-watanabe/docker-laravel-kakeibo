@@ -7,15 +7,14 @@
     margin: 20px auto 0;
   }
 
-  .create-category-form {
+  .category-form-left {
     display: flex;
-    align-items: flex-end;
-    height: fit-content;
+    flex-direction: column;
+    width: calc(100% - 52px);
   }
 
-  .create-category-form-wrapper {
-    width: 100%;
-    margin-bottom: 0;
+  .form-wrapper {
+    display: flex;
   }
 
   .create-category-form-label {
@@ -35,5 +34,9 @@
     font-size: 14px;
     white-space:  nowrap;
     border-radius: 0 4px 4px 0;
+  }
+
+  .category-table-wrapper {
+    padding: 0px 60px 20px;
   }
 }

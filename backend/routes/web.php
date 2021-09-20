@@ -41,6 +41,9 @@ Route::get('/spending/delete/{spending}', [SpendingController::class, 'destroy']
 // カテゴリトップ
 Route::get('/category', [CategoryController::class, 'show'])
     ->name('category');
+// カテゴリ登録
+Route::post('/category', [CategoryController::class, 'store'])
+    ->name('category');
 
 
 Auth::routes();
