@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpendingController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Requests\CategoryRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,10 @@ Route::post('/category', [CategoryController::class, 'store'])
 Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])
     ->name('category.edit');
 Route::post('/category/edit', [CategoryController::class, 'update'])
-->name('category.update');
+    ->name('category.update');
+// カテゴリ削除
+Route::get('/category/delete/{category}', [CategoryController::class, 'destroy'])
+    ->name('category.destroy');
 
 
 Auth::routes();

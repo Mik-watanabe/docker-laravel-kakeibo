@@ -30,16 +30,25 @@ class CategoryController extends Controller
         return redirect()->route('category');
     }
 
-    public function edit(Category $category)
+    public function edit(Category $category): View
     {
         return view('categories.edit', ['category' => $category]);
     }
 
-    public function update(CategoryRequest $request)
+    public function update(CategoryRequest $request): RedirectResponse
     {
         $category = Category::find($request->category_id);
         $category->name = $request->category;
         $category->save();
+        return redirect()->route('category');
+    }
+
+    public function destroy(Category $category): RedirectResponse
+    {
+        Category::where('id', $category->id)
+            ->first()
+            ->delete();
+            
         return redirect()->route('category');
     }
 }

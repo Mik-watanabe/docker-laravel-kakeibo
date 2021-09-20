@@ -9,8 +9,14 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function spending()
+    public function spendings()
     {
-        return $this->hasOne(Spending::class);
+        return $this->hasMany(Spending::class);
+    }
+
+    public function delete()
+    {
+        $this->spendings()->delete();
+        return Parent::delete();
     }
 }

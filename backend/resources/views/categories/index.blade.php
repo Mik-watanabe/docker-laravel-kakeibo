@@ -48,7 +48,7 @@
             <tr>
               <td>{{ $category->name }}</td>
               <td><a href="{{ route('category.edit', ['category' => $category]) }}" class="table-link edit">編集</a></td>
-              <td><a href="" class="table-link delete">削除</a></td>
+              <td><a href="{{ route('category.destroy', ['category' => $category]) }}" onclick="return confirm('指定されたカテゴリに分類されている支出も削除されます。削除してよろしいですか？')"　class="table-link delete">削除</a></td>
             </tr>
           @endforeach
         @endif
