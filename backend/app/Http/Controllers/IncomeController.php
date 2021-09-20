@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Income;
 use App\Models\IncomeSource;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class IncomeController extends Controller
 {
     public function show(Request $request): View
     {
-        $requests = null;
-        // $requests = array_filter($request->all);
+        $requests = array_filter($request->all());
         $userId = Auth::id();
         $incomeSources = IncomeSource::where('user_id', $userId)->get();
         $builder = Income::query();
@@ -34,5 +34,13 @@ class IncomeController extends Controller
             'dateStart' => $requests['date_start'] ?? null,
             'dateFinish' => $requests['date_finish'] ?? null
         ]);
+    }
+
+    public function destroy(Income $income): RedirectResponse
+    {
+        $income = Income::find($income->id);
+        $income->delete();
+
+        return redirect()->route('income');
     }
 }

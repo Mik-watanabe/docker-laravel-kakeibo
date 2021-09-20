@@ -46,7 +46,7 @@
   <div class="c-list">
     <table class="income-table c-table">
       <tr>
-        <th width="25%">収入名</th>
+        <th width="25%">収入源</th>
         <th width="25%">金額</th>
         <th width="20%">日付</th>
         <th width="15%">編集</th>
@@ -67,7 +67,7 @@
             <td>{{ $income->amount }}</td>
             <td>{{ $income->accrual_date_for_view }}</td>
             {{-- <td><a href="{{ route('incomes.edit', ['income' => $income]) }}" class="table-link edit">編集</a></td> --}}
-            {{-- <td><a href="{{ route('incomes.destroy', $income)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td> --}}
+            <td><a href="{{ route('incomes.destroy', $income)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td>
           </tr>
         @endforeach
       @endif

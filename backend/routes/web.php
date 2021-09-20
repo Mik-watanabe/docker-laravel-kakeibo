@@ -57,6 +57,9 @@ Route::get('/category/delete/{category}', [CategoryController::class, 'destroy']
 //収入トップ
 Route::get('/income', [IncomeController::class, 'show'])
     ->name('income');
+// 収入の削除
+Route::get('/income/delete/{income}', [IncomeController::class, 'destroy'])
+->name('incomes.destroy');
 
 Auth::routes();
 
