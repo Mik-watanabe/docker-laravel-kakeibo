@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpendingController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Requests\CategoryRequest;
 
 /*
@@ -53,7 +54,9 @@ Route::post('/category/edit', [CategoryController::class, 'update'])
 // カテゴリ削除
 Route::get('/category/delete/{category}', [CategoryController::class, 'destroy'])
     ->name('category.destroy');
-
+//収入トップ
+Route::get('/income', [IncomeController::class, 'show'])
+    ->name('income');
 
 Auth::routes();
 

@@ -81,6 +81,9 @@ class SpendingController extends Controller
             ->sortByDesc(function ($spending) {
                 return $spending->sum('amount');
             })
+            ->map(function ($category) {
+                return $category->sum('amount');
+            })
         ->take(3);
 
         return view('spendings.index', [

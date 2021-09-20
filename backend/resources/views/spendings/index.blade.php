@@ -21,7 +21,7 @@
             @foreach ($rankings as $key => $ranking)
               <span class="ranking-section-txt">
                 <span class="ranking-heading">{{ $loop->index + 1 }}位</span>
-                {{ $key }}／{{$ranking->sum('amount')}}円
+                {{ $key }}／{{ $ranking }}円
               </span>
             @endforeach
           @endif
