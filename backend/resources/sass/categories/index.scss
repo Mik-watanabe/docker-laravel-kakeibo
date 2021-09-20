@@ -1,0 +1,39 @@
+@import '../variables';
+.category-container {
+  .create-category-section {
+    width: 50%;
+    max-width: 380px;
+    min-width: 280px;
+    margin: 20px auto 0;
+  }
+
+  .create-category-form {
+    display: flex;
+    align-items: flex-end;
+    height: fit-content;
+  }
+
+  .create-category-form-wrapper {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .create-category-form-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .create-category-form-input {
+    border-radius: 3px 0 0 3px ;
+  }
+
+  .create-category-form-btn {
+    width: fit-content;
+    height: 37px;
+    padding: 6px 12px;
+    font-size: 14px;
+    white-space:  nowrap;
+    border-radius: 0 4px 4px 0;
+  }
+}

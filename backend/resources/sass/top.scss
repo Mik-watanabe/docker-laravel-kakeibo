@@ -1,0 +1,44 @@
+@import './variables';
+
+.top-container {
+  .search-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 24px auto 24px;
+  }
+
+  .search-section-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 350px;
+  }
+
+  .search-section-label {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 0;
+  }
+
+  .top-select {
+    width: 70%;
+    padding: 2px 16px;
+    margin: 0 6px 0 0;
+  }
+
+  .top-search-txt {
+    white-space: nowrap;
+  }
+
+  .top-btn-wrapper {
+    width: 22%;
+  }
+
+  table td:first-child {
+    padding-left: 0;
+    text-align: center;
+  }
+ }

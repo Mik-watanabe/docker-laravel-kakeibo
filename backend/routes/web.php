@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpendingController;
+use App\Http\Controllers\TopController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +16,12 @@ use App\Http\Controllers\SpendingController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('top');
-
 Route::get('scss', function () {
     return view('test');
 });
+// トップ
+Route::get('/top', [TopController::class, 'show'])
+    ->name('top');
 // 支出トップ
 Route::get('/spending', [SpendingController::class, 'show'])
     ->name('spendings');
@@ -28,15 +29,18 @@ Route::get('/spending', [SpendingController::class, 'show'])
 Route::get('/spending/register', [SpendingController::class, 'create'])
     ->name('spendings.register');
 Route::post('/spending/register', [SpendingController::class, 'store'])
-->name('spendings.register');
+    ->name('spendings.register');
 // 支出編集
 Route::get('/spending/edit/{spending}', [SpendingController::class, 'edit'])
-->name('spendings.edit');
+    ->name('spendings.edit');
 Route::post('/spending/edit', [SpendingController::class, 'update'])
-->name('spendings.update');
+    ->name('spendings.update');
 //支出削除
 Route::get('/spending/delete/{spending}', [SpendingController::class, 'destroy'])
-->name('spendings.destroy');
+    ->name('spendings.destroy');
+// カテゴリトップ
+Route::get('/category', [CategoryController::class, 'show'])
+    ->name('category');
 
 
 Auth::routes();
