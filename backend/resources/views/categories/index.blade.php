@@ -15,7 +15,7 @@
     <form action="{{ route('category') }}" method="POST" class="create-category-section">
       @csrf
       <div class="c-form-group">
-        <label for="category" class="c-label create-category-form-label">支出名</label>
+        <label for="category" class="c-label create-category-form-label">カテゴリ名</label>
         <div class="form-wrapper">
           <div class="category-form-left">
             <input id="category" type="text" class="c-form-input create-category-form-input @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}" autofocus placeholder="支出名" required />
@@ -29,7 +29,7 @@
         </div>
       </div>
     </form>
-    
+
     <div class="category-table-wrapper">
       <table class="c-table category-table">
         <tr>
@@ -47,7 +47,7 @@
           @foreach ($categories as $category)
             <tr>
               <td>{{ $category->name }}</td>
-              <td><a href="" class="table-link edit">編集</a></td>
+              <td><a href="{{ route('category.edit', ['category' => $category]) }}" class="table-link edit">編集</a></td>
               <td><a href="" class="table-link delete">削除</a></td>
             </tr>
           @endforeach

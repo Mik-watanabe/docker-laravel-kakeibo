@@ -29,4 +29,17 @@ class CategoryController extends Controller
 
         return redirect()->route('category');
     }
+
+    public function edit(Category $category)
+    {
+        return view('categories.edit', ['category' => $category]);
+    }
+
+    public function update(CategoryRequest $request)
+    {
+        $category = Category::find($request->category_id);
+        $category->name = $request->category;
+        $category->save();
+        return redirect()->route('category');
+    }
 }

@@ -44,6 +44,11 @@ Route::get('/category', [CategoryController::class, 'show'])
 // カテゴリ登録
 Route::post('/category', [CategoryController::class, 'store'])
     ->name('category');
+//カテゴリ編集
+Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])
+    ->name('category.edit');
+Route::post('/category/edit', [CategoryController::class, 'update'])
+->name('category.update');
 
 
 Auth::routes();
