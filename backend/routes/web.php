@@ -22,69 +22,77 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/top', [TopController::class, 'show'])
         ->name('top');
 
-    // 支出トップ
-    Route::get('/spending', [SpendingController::class, 'show'])
-        ->name('spendings.top');
-    // 支出登録
-    Route::get('/spending/register', [SpendingController::class, 'create'])
-        ->name('spendings.register');
-    Route::post('/spending/register', [SpendingController::class, 'store'])
-        ->name('spendings.register');
-    // 支出編集
-    Route::get('/spending/edit/{spending}', [SpendingController::class, 'edit'])
-        ->name('spendings.edit');
-    Route::post('/spending/edit', [SpendingController::class, 'update'])
-        ->name('spendings.update');
-    //支出削除
-    Route::get('/spending/delete/{spending}', [SpendingController::class, 'destroy'])
-        ->name('spendings.destroy');
+    Route::group(['prefix' => 'spending', 'as' => 'spendings.'], function () {
+        // 支出トップ
+        Route::get('/', [SpendingController::class, 'show'])
+            ->name('top');
+        // 支出登録
+        Route::get('/register', [SpendingController::class, 'create'])
+            ->name('register');
+        Route::post('/register', [SpendingController::class, 'store'])
+            ->name('register');
+        // 支出編集
+        Route::get('/edit/{spending}', [SpendingController::class, 'edit'])
+            ->name('edit');
+        Route::post('/edit', [SpendingController::class, 'update'])
+            ->name('update');
+        //支出削除
+        Route::get('/delete/{spending}', [SpendingController::class, 'destroy'])
+            ->name('destroy');
+    });
 
-    // カテゴリトップ
-    Route::get('/category', [CategoryController::class, 'show'])
-        ->name('category.top');
-    // カテゴリ登録
-    Route::post('/category', [CategoryController::class, 'store'])
-        ->name('category');
-    //カテゴリ編集
-    Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])
-        ->name('category.edit');
-    Route::post('/category/edit', [CategoryController::class, 'update'])
-        ->name('category.update');
-    // カテゴリ削除
-    Route::get('/category/delete/{category}', [CategoryController::class, 'destroy'])
-        ->name('category.destroy');
+    Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
+        // カテゴリトップ
+        Route::get('/', [CategoryController::class, 'show'])
+            ->name('top');
+        // カテゴリ登録
+        Route::post('/', [CategoryController::class, 'store'])
+            ->name('category');
+        //カテゴリ編集
+        Route::get('/edit/{category}', [CategoryController::class, 'edit'])
+            ->name('edit');
+        Route::post('/edit', [CategoryController::class, 'update'])
+            ->name('update');
+        // カテゴリ削除
+        Route::get('/delete/{category}', [CategoryController::class, 'destroy'])
+            ->name('destroy');
+    });
 
-    //収入トップ
-    Route::get('/income', [IncomeController::class, 'show'])
-        ->name('income.top');
-    // 収入登録
-    Route::get('/income/register', [IncomeController::class, 'create'])
-        ->name('income.register');
-    Route::post('/income/register', [IncomeController::class, 'store'])
-        ->name('income.register');
-    // 収入の編集
-    Route::get('/income/edit/{income}', [IncomeController::class, 'edit'])
-    ->name('incomes.edit');
-    Route::post('/income/edit', [IncomeController::class, 'update'])
-    ->name('income.update');
-    // 収入の削除
-    Route::get('/income/delete/{income}', [IncomeController::class, 'destroy'])
-    ->name('income.destroy');
+    Route::group(['prefix' => 'income', 'as' => 'income.'], function () {
+        //収入トップ
+        Route::get('/', [IncomeController::class, 'show'])
+            ->name('top');
+        // 収入登録
+        Route::get('/register', [IncomeController::class, 'create'])
+            ->name('register');
+        Route::post('/register', [IncomeController::class, 'store'])
+            ->name('register');
+        // 収入の編集
+        Route::get('/edit/{income}', [IncomeController::class, 'edit'])
+        ->name('edit');
+        Route::post('/edit', [IncomeController::class, 'update'])
+        ->name('update');
+        // 収入の削除
+        Route::get('/delete/{income}', [IncomeController::class, 'destroy'])
+        ->name('destroy');
+    });
 
-    // 収入源トップ
-    Route::get('/income-source', [IncomeSourceController::class, 'show'])
+    Route::group(['prefix' => 'income-source', 'as' => 'incomeSource.'], function () {
+        // 収入源トップ
+        Route::get('/', [IncomeSourceController::class, 'show'])
         ->name('incomeSource.top');
-    // 収入登録
-    Route::post('/income-source', [IncomeSourceController::class, 'store'])
-        ->name('incomeSource');
-    //収入編集
-    Route::get('/income-source/edit/{incomeSource}', [IncomeSourceController::class, 'edit'])
-        ->name('incomeSource.edit');
-    Route::post('/income-source/edit', [IncomeSourceController::class, 'update'])
-        ->name('incomeSource.update');
-    // 収入削除
-    Route::get('/income-source/delete/{incomeSource}', [IncomeSourceController::class, 'destroy'])
-        ->name('incomeSource.destroy');
+        // 収入登録
+        Route::post('/', [IncomeSourceController::class, 'store'])
+            ->name('incomeSource');
+        //収入編集
+        Route::get('/edit/{incomeSource}', [IncomeSourceController::class, 'edit'])
+            ->name('incomeSource.edit');
+        Route::post('/edit', [IncomeSourceController::class, 'update'])
+            ->name('incomeSource.update');
+        // 収入削除
+        Route::get('/delete/{incomeSource}', [IncomeSourceController::class, 'destroy'])
+            ->name('incomeSource.destroy');
+    });
 });
 
 Auth::routes();
