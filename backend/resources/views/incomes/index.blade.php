@@ -12,7 +12,7 @@
         <span class="total-amount-heading">合計：</span>
         <span class="total-amount">{{ $incomes->sum('amount') }} 円</span>
     </div>
-    <a href="{{ route('spendings.register') }}" class="link-register">収入を登録する</a>
+    <a href="{{ route('income.register') }}" class="link-register">収入を登録する</a>
     <form action="{{ route('income') }}" class="search-form" method="GET">
         <h2 class="search-form-title">絞り込み検索<a href="{{ route('income')}}" class="search-form-title-link">元に戻す</a></h2>
         <div class="search-form-input-list">
@@ -66,8 +66,8 @@
             <td>{{ $income->incomeSource->name }}</td>
             <td>{{ $income->amount }}</td>
             <td>{{ $income->accrual_date_for_view }}</td>
-            {{-- <td><a href="{{ route('incomes.edit', ['income' => $income]) }}" class="table-link edit">編集</a></td> --}}
-            <td><a href="{{ route('incomes.destroy', $income)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td>
+            <td><a href="{{ route('incomes.edit', ['income' => $income]) }}" class="table-link edit">編集</a></td>
+            <td><a href="{{ route('income.destroy', $income)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td>
           </tr>
         @endforeach
       @endif

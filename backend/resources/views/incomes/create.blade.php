@@ -1,47 +1,36 @@
 @extends('layouts.app')
 
 @section('title')
-  支出登録
+  収入登録
 @endsection
 
 @section('content')
   <div class="c-form">
     <h1 class="c-prev-and-title-wrapper">
-      <a class="c-prev-link" href="{{ route('spendings') }}">
+      <a class="c-prev-link" href="{{ route('income') }}">
         <img src="/images/arrow-message.svg" class="c-prev-link-img" alt="戻るボタン">
       </a>
-      支出登録
+      収入登録
     </h1>
-    <form action="{{ route('spendings.register') }}" method="POST" class="c-form-content">
+    <form action="{{ route('income.register') }}" method="POST" class="c-form-content">
       @csrf
 
       <div class="c-form-group">
-        <label for="spending" class="c-label">支出名</label>
-        <input id="spending" type="text" class="c-form-input @error('spending') is-invalid @enderror" name="spending" value="{{ old('spending') }}" autofocus placeholder="支出名" required />
-
-        @error('spending')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-
-      <div class="c-form-group">
-        <label for="category" class="c-label">カテゴリ</label>
-        <select id="category" name="category" class="c-form-input @error('category') is-invalid @enderror">
-          @if ($categories->isEmpty())
-            <option selected disable>カテゴリーを登録してください</option>
+        <label for="income_source_id" class="c-label">収入源</label>
+        <select id="income_source_id" name="income_source_id" class="c-form-input @error('income_source_id') is-invalid @enderror">
+          @if ($incomeSources->isEmpty())
+            <option selected disable>収入源を登録してください</option>
           @else
-            @if (!old('category'))
-              <option selected disabled>カテゴリーを選択してください</option>
+            @if (!old('income_source_id'))
+              <option selected disabled>収入源を選択してください</option>
             @endif
-            @foreach($categories as $category)
-              <option value="{{ $category->id }}" @if(old('category') && $category->id == old('category')) selected @endif>{{ $category->name }}</option>
+            @foreach($incomeSources as $incomeSource)
+              <option value="{{ $incomeSource->id }}" @if(old('income_source_id') && $incomeSource->id == old('income_source_id')) selected @endif>{{ $incomeSource->name }}</option>
             @endforeach
           @endif
         </select>
 
-        @error('category')
+        @error('income_source_id')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -69,7 +58,6 @@
             </span>
         @enderror
       </div>
-
       <div class="c-form-btn-wrapper">
           <button class="c-btn">登録</button>
       </div>

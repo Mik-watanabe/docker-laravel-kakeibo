@@ -130,6 +130,7 @@ class SpendingController extends Controller
         return redirect()->route('spendings');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

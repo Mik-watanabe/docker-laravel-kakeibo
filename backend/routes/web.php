@@ -57,9 +57,19 @@ Route::get('/category/delete/{category}', [CategoryController::class, 'destroy']
 //収入トップ
 Route::get('/income', [IncomeController::class, 'show'])
     ->name('income');
+// 収入登録
+Route::get('/income/register', [IncomeController::class, 'create'])
+    ->name('income.register');
+Route::post('/income/register', [IncomeController::class, 'store'])
+    ->name('income.register');
+// 収入の編集
+Route::get('/income/edit/{income}', [IncomeController::class, 'edit'])
+->name('incomes.edit');
+Route::post('/income/edit', [IncomeController::class, 'update'])
+->name('income.update');
 // 収入の削除
 Route::get('/income/delete/{income}', [IncomeController::class, 'destroy'])
-->name('incomes.destroy');
+->name('income.destroy');
 
 Auth::routes();
 
