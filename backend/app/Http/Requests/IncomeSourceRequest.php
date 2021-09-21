@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest
+class IncomeSourceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required|string|max:10'
+            'income_source' => 'required|string|max:20'
         ];
     }
 
     public function attributes()
     {
         return [
-            'income_source' => 'カテゴリ'
+            'income_source' => '収入源'
         ];
     }
 }

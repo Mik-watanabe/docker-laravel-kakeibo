@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 use App\Models\Income;
 use App\Models\IncomeSource;
-use App\Http\Requests\IncomeRequest;
+use App\Http\Requests\IncomeSourceRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class IncomeSourceController extends Controller
@@ -15,5 +16,17 @@ class IncomeSourceController extends Controller
         $incomeSources = IncomeSource::where('user_id', Auth::id())
             ->get();
         return view('incomeSources.index', ['incomeSources' => $incomeSources]);
+    }
+
+    public function store(IncomeSourceRequest $request): RedirectResponse
+    {
+        $validated = $request->validated();
+
+        $incomeSource = new IncomeSource();
+        $incomeSource->user_id = Auth::id();
+        $incomeSource->name = $validated['income_source'];
+        $incomeSource->save();
+
+        return redirect()->route('incomeSource');
     }
 }

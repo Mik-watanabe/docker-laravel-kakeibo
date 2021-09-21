@@ -74,8 +74,8 @@ Route::get('/income/delete/{income}', [IncomeController::class, 'destroy'])
 Route::get('/income-source', [IncomeSourceController::class, 'show'])
     ->name('incomeSource');
 // 収入登録
-// Route::post('/income-source', [CategoryController::class, 'store'])
-//     ->name('category');
+Route::post('/income-source', [IncomeSourceController::class, 'store'])
+    ->name('incomeSource');
 //収入編集
 // Route::get('/income-source/edit/{category}', [CategoryController::class, 'edit'])
 //     ->name('category.edit');
