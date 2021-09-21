@@ -31,6 +31,20 @@ class IncomeSourceController extends Controller
         return redirect()->route('incomeSource');
     }
 
+    public function edit(IncomeSource $incomeSource): View
+    {
+            return view('incomeSources.edit', ['incomeSource' => $incomeSource]);
+    }
+
+    public function update(IncomeSourceRequest $request): RedirectResponse
+    {
+        $incomeSource = IncomeSource::find($request->income_source_id);
+        $incomeSource->name = $request->income_source;
+        $incomeSource->save();
+
+        return redirect()->route('incomeSource');
+    }
+
     public function destroy(IncomeSource $incomeSource): RedirectResponse
     {
         IncomeSource::where('id', $incomeSource->id)
