@@ -231,3 +231,83 @@
 .category-container .category-table-wrapper {
   padding: 0px 60px 20px;
 }
+
+/**
+* 収入一覧
+*/
+.income-top-container .income-upper-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.income-top-container .total-amount-section {
+  margin-top: 6px;
+  padding-left: 4px;
+  line-height: 140%;
+  font-weight: bold;
+  border-left: 4px solid #f9e13f;
+}
+.income-top-container .link-register {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #0090da;
+  border-radius: 3px;
+}
+.income-top-container .link-register:hover {
+  background-color: #0075b1;
+}
+.income-top-container .search-form {
+  margin-top: 16px;
+}
+.income-top-container .search-form-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.income-top-container .search-form-title-link {
+  display: inline-block;
+  margin-left: 24px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #0075b1;
+}
+.income-top-container .search-form-title-link:hover {
+  text-decoration: underline !important;
+}
+.income-top-container .search-form-input-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 15px;
+}
+.income-top-container .search-form-input-list label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.income-top-container .search-form-input {
+  padding: 3px 6px;
+  background-color: #E9EEEF;
+  border-radius: 4px;
+}
+.income-top-container .search-form-input.select {
+  min-width: 200px;
+}
+.income-top-container .search-form-btn {
+  height: 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 8px;
+  padding: 0 12px;
+  font-size: 12px;
+}

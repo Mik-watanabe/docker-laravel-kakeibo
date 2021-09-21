@@ -81,6 +81,9 @@ class SpendingController extends Controller
             ->sortByDesc(function ($spending) {
                 return $spending->sum('amount');
             })
+            ->map(function ($category) {
+                return $category->sum('amount');
+            })
         ->take(3);
 
         return view('spendings.index', [
@@ -127,6 +130,7 @@ class SpendingController extends Controller
         return redirect()->route('spendings');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

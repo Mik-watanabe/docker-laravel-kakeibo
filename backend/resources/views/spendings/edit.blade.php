@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  支出登録
+  支出編集
 @endsection
 
 @section('content')
