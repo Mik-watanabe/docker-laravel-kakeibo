@@ -1,0 +1,43 @@
+@import '../variables';
+.income-source-container {
+
+  .create-income-source-section {
+    width: 50%;
+    max-width: 380px;
+    min-width: 280px;
+    margin: 20px auto 0;
+  }
+
+  .create-income-source-form-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .form-wrapper {
+    display: flex;
+  }
+
+  .income-source-form-left {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 52px);
+  }
+
+  .create-income-source-form-input {
+    border-radius: 3px 0 0 3px ;
+  }
+
+  .create-income-source-form-btn {
+    width: fit-content;
+    height: 37px;
+    padding: 6px 12px;
+    font-size: 14px;
+    white-space:  nowrap;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .income-source-table-wrapper {
+    padding: 0px 60px 20px;
+  }
+}
