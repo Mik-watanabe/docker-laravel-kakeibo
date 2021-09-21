@@ -32,6 +32,8 @@ class CategoryController extends Controller
 
     public function edit(Category $category): View
     {
+        $this->authorize('manage', $category);
+
         return view('categories.edit', ['category' => $category]);
     }
 
@@ -39,12 +41,17 @@ class CategoryController extends Controller
     {
         $category = Category::find($request->category_id);
         $category->name = $request->category;
+
+        $this->authorize('manage', $category);
+
         $category->save();
         return redirect()->route('category.top');
     }
 
     public function destroy(Category $category): RedirectResponse
     {
+        $this->authorize('manage', $category);
+        
         Category::where('id', $category->id)
             ->first()
             ->delete();

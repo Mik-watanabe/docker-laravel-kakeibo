@@ -104,6 +104,8 @@ class SpendingController extends Controller
      */
     public function edit(Spending $spending): View
     {
+        $this->authorize('manage', $spending);
+
         $categories = Category::where('user_id', Auth::id())->get();
         return view('spendings.edit', [
             'spending' => $spending,
@@ -120,11 +122,15 @@ class SpendingController extends Controller
      */
     public function update(SpendingRequest $request)
     {
+
         $spending = Spending::find($request->spending_id);
         $spending->category_id = $request->category;
         $spending->name = $request->spending;
         $spending->amount = $request->amount;
         $spending->accrual_date = $request->date;
+
+        $this->authorize('manage', $spending);
+
         $spending->save();
 
         return redirect()->route('spendings.top');
@@ -139,7 +145,8 @@ class SpendingController extends Controller
      */
     public function destroy(Spending $spending)
     {
-        // 認可機能をあとでつける（Userが同じかどうか）
+        $this->authorize('manage', $spending);
+
         $spending = Spending::find($spending->id);
         $spending->delete();
 
