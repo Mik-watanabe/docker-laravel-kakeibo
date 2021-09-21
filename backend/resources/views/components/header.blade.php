@@ -5,7 +5,7 @@
     <nav class="header-right">
         <ul class="header-list">
             <li class="list-item"><a href="{{ route('income') }}" class="list-item-link">収入TOP</a></li>
-            <li class="list-item"><a href="" class="list-item-link">収入源リスト</a></li>
+            <li class="list-item"><a href="{{ route('incomeSource') }}" class="list-item-link">収入源リスト</a></li>
             <li class="list-item"><a href="{{ route('spendings') }}" class="list-item-link">支出TOP</a></li>
             <li class="list-item"><a href="{{ route('category') }}" class="list-item-link">カテゴリ</a></li>
             <li class="list-item"><a href="" class="list-item-link">ログアウト</a></li>

@@ -311,3 +311,39 @@
   padding: 0 12px;
   font-size: 12px;
 }
+
+.income-source-container .create-income-source-section {
+  width: 50%;
+  max-width: 380px;
+  min-width: 280px;
+  margin: 20px auto 0;
+}
+.income-source-container .create-income-source-form-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.income-source-container .form-wrapper {
+  display: flex;
+}
+.income-source-container .income-source-form-left {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 52px);
+}
+.income-source-container .create-income-source-form-input {
+  border-radius: 3px 0 0 3px;
+}
+.income-source-container .create-income-source-form-btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 37px;
+  padding: 6px 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 0 4px 4px 0;
+}
+.income-source-container .income-source-table-wrapper {
+  padding: 0px 60px 20px;
+}

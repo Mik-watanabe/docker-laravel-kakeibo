@@ -5,7 +5,7 @@ use App\Http\Controllers\SpendingController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IncomeController;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Controllers\IncomeSourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,6 @@ use App\Http\Requests\CategoryRequest;
 |
 */
 
-Route::get('scss', function () {
-    return view('test');
-});
 // トップ
 Route::get('/top', [TopController::class, 'show'])
     ->name('top');
@@ -40,6 +37,7 @@ Route::post('/spending/edit', [SpendingController::class, 'update'])
 //支出削除
 Route::get('/spending/delete/{spending}', [SpendingController::class, 'destroy'])
     ->name('spendings.destroy');
+
 // カテゴリトップ
 Route::get('/category', [CategoryController::class, 'show'])
     ->name('category');
@@ -54,6 +52,7 @@ Route::post('/category/edit', [CategoryController::class, 'update'])
 // カテゴリ削除
 Route::get('/category/delete/{category}', [CategoryController::class, 'destroy'])
     ->name('category.destroy');
+
 //収入トップ
 Route::get('/income', [IncomeController::class, 'show'])
     ->name('income');
@@ -70,6 +69,21 @@ Route::post('/income/edit', [IncomeController::class, 'update'])
 // 収入の削除
 Route::get('/income/delete/{income}', [IncomeController::class, 'destroy'])
 ->name('income.destroy');
+
+// 収入源トップ
+Route::get('/income-source', [IncomeSourceController::class, 'show'])
+    ->name('incomeSource');
+// 収入登録
+Route::post('/income-source', [IncomeSourceController::class, 'store'])
+    ->name('incomeSource');
+//収入編集
+Route::get('/income-source/edit/{incomeSource}', [IncomeSourceController::class, 'edit'])
+    ->name('incomeSource.edit');
+Route::post('/income-source/edit', [IncomeSourceController::class, 'update'])
+    ->name('incomeSource.update');
+// 収入削除
+Route::get('/income-source/delete/{incomeSource}', [IncomeSourceController::class, 'destroy'])
+    ->name('incomeSource.destroy');
 
 Auth::routes();
 
