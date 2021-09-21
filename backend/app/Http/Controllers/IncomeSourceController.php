@@ -33,13 +33,17 @@ class IncomeSourceController extends Controller
 
     public function edit(IncomeSource $incomeSource): View
     {
-            return view('incomeSources.edit', ['incomeSource' => $incomeSource]);
+        $this->authorize('manage', $incomeSource);
+
+        return view('incomeSources.edit', ['incomeSource' => $incomeSource]);
     }
 
     public function update(IncomeSourceRequest $request): RedirectResponse
     {
         $incomeSource = IncomeSource::find($request->income_source_id);
         $incomeSource->name = $request->income_source;
+
+        $this->authorize('manage', $incomeSource);
         $incomeSource->save();
 
         return redirect()->route('incomeSource.top');
@@ -47,6 +51,8 @@ class IncomeSourceController extends Controller
 
     public function destroy(IncomeSource $incomeSource): RedirectResponse
     {
+        $this->authorize('manage', $incomeSource);
+        
         IncomeSource::where('id', $incomeSource->id)
         ->first()
         ->delete();

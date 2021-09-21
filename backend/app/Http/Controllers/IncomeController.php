@@ -60,6 +60,8 @@ class IncomeController extends Controller
 
     public function edit(Income $income): View
     {
+        $this->authorize('manage', $income);
+
         $incomeSources = IncomeSource::where('user_id', $income->user_id)
             ->get();
 
@@ -75,6 +77,9 @@ class IncomeController extends Controller
         $income->income_source_id = $request->income_source_id;
         $income->amount = $request->amount;
         $income->accrual_date = $request->date;
+
+        $this->authorize('manage', $income);
+
         $income->save();
 
         return redirect()->route('income.top');
@@ -82,6 +87,8 @@ class IncomeController extends Controller
 
     public function destroy(Income $income): RedirectResponse
     {
+        $this->authorize('manage', $income);
+
         $income = Income::find($income->id);
         $income->delete();
 
