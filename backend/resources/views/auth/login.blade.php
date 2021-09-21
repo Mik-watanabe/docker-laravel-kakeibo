@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="login-container">
-    <h1 class="c-form-heading border">ログイン</h1>
+<div class="login-container c-form">
+    <h1 class="c-form-heading">ログイン</h1>
 
     <form method="POST" action="{{ route('login') }}" class="c-form-content">
         @csrf

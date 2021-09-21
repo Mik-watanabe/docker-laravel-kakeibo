@@ -13,8 +13,8 @@
         <span class="total-amount">{{ $incomes->sum('amount') }} 円</span>
     </div>
     <a href="{{ route('income.register') }}" class="link-register">収入を登録する</a>
-    <form action="{{ route('income') }}" class="search-form" method="GET">
-        <h2 class="search-form-title">絞り込み検索<a href="{{ route('income')}}" class="search-form-title-link">元に戻す</a></h2>
+    <form action="{{ route('income.top') }}" class="search-form" method="GET">
+        <h2 class="search-form-title">絞り込み検索<a href="{{ route('income.top')}}" class="search-form-title-link">元に戻す</a></h2>
         <div class="search-form-input-list">
           <label>
             <span class="search-form-heading">収入源：</span>

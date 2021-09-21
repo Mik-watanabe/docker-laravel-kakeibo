@@ -55,7 +55,7 @@ class IncomeController extends Controller
         $income->accrual_date = $validated['date'];
         $income->save();
 
-        return redirect()->route('income');
+        return redirect()->route('income.top');
     }
 
     public function edit(Income $income): View
@@ -77,7 +77,7 @@ class IncomeController extends Controller
         $income->accrual_date = $request->date;
         $income->save();
 
-        return redirect()->route('income');
+        return redirect()->route('income.top');
     }
 
     public function destroy(Income $income): RedirectResponse
@@ -85,6 +85,6 @@ class IncomeController extends Controller
         $income = Income::find($income->id);
         $income->delete();
 
-        return redirect()->route('income');
+        return redirect()->route('income.top');
     }
 }

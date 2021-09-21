@@ -27,8 +27,8 @@
           @endif
     </div>
     <a href="{{ route('spendings.register') }}" class="link-register">支出を登録する</a>
-    <form action="{{ route('spendings') }}" class="search-form" method="GET">
-        <h2 class="search-form-title">絞り込み検索<a href="{{ route('spendings')}}" class="search-form-title-link">元に戻す</a></h2>
+    <form action="{{ route('spendings.top') }}" class="search-form" method="GET">
+        <h2 class="search-form-title">絞り込み検索<a href="{{ route('spendings.top')}}" class="search-form-title-link">元に戻す</a></h2>
         <div class="search-form-input-list">
           <label>
             <span class="search-form-heading">カテゴリ：</span>

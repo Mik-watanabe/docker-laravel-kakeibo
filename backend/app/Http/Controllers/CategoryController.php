@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $category->name = $validated['category'];
         $category->save();
 
-        return redirect()->route('category');
+        return redirect()->route('category.top');
     }
 
     public function edit(Category $category): View
@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $category = Category::find($request->category_id);
         $category->name = $request->category;
         $category->save();
-        return redirect()->route('category');
+        return redirect()->route('category.top');
     }
 
     public function destroy(Category $category): RedirectResponse
@@ -48,7 +48,7 @@ class CategoryController extends Controller
         Category::where('id', $category->id)
             ->first()
             ->delete();
-            
-        return redirect()->route('category');
+
+        return redirect()->route('category.top');
     }
 }

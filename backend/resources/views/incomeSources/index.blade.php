@@ -12,7 +12,7 @@
       </a>
       収入源一覧
     </h1>
-    <form action="{{ route('incomeSource') }}" method="POST" class="create-income-source-section">
+    <form action="{{ route('incomeSource.top') }}" method="POST" class="create-income-source-section">
       @csrf
       <div class="c-form-group">
         <label for="incomeSource" class="c-label create-income-source-form-label">収入源</label>

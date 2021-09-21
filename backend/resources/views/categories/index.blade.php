@@ -12,7 +12,7 @@
       </a>
       カテゴリ一覧
     </h1>
-    <form action="{{ route('category') }}" method="POST" class="create-category-section">
+    <form action="{{ route('category.top') }}" method="POST" class="create-category-section">
       @csrf
       <div class="c-form-group">
         <label for="category" class="c-label create-category-form-label">カテゴリ名</label>

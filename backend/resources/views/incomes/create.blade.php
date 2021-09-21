@@ -7,7 +7,7 @@
 @section('content')
   <div class="c-form">
     <h1 class="c-prev-and-title-wrapper">
-      <a class="c-prev-link" href="{{ route('income') }}">
+      <a class="c-prev-link" href="{{ route('income.top') }}">
         <img src="/images/arrow-message.svg" class="c-prev-link-img" alt="戻るボタン">
       </a>
       収入登録

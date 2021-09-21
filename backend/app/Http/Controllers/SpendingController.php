@@ -53,7 +53,7 @@ class SpendingController extends Controller
         $spending->accrual_date = $validated['date'];
         $spending->save();
 
-        return redirect()->route('spendings');
+        return redirect()->route('spendings.top');
     }
 
     /**
@@ -127,10 +127,10 @@ class SpendingController extends Controller
         $spending->accrual_date = $request->date;
         $spending->save();
 
-        return redirect()->route('spendings');
+        return redirect()->route('spendings.top');
     }
 
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -143,6 +143,6 @@ class SpendingController extends Controller
         $spending = Spending::find($spending->id);
         $spending->delete();
 
-        return redirect()->route('spendings');
+        return redirect()->route('spendings.top');
     }
 }

@@ -28,7 +28,7 @@ class IncomeSourceController extends Controller
         $incomeSource->name = $validated['income_source'];
         $incomeSource->save();
 
-        return redirect()->route('incomeSource');
+        return redirect()->route('incomeSource.top');
     }
 
     public function edit(IncomeSource $incomeSource): View
@@ -42,7 +42,7 @@ class IncomeSourceController extends Controller
         $incomeSource->name = $request->income_source;
         $incomeSource->save();
 
-        return redirect()->route('incomeSource');
+        return redirect()->route('incomeSource.top');
     }
 
     public function destroy(IncomeSource $incomeSource): RedirectResponse
@@ -51,6 +51,6 @@ class IncomeSourceController extends Controller
         ->first()
         ->delete();
 
-        return redirect()->route('incomeSource');
+        return redirect()->route('incomeSource.top');
     }
 }
