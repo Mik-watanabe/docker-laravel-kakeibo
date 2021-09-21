@@ -66,7 +66,7 @@
             <td>{{ $income->incomeSource->name }}</td>
             <td>{{ $income->amount }}</td>
             <td>{{ $income->accrual_date_for_view }}</td>
-            <td><a href="{{ route('incomes.edit', ['income' => $income]) }}" class="table-link edit">編集</a></td>
+            <td><a href="{{ route('income.edit', ['income' => $income]) }}" class="table-link edit">編集</a></td>
             <td><a href="{{ route('income.destroy', $income)}}" class="table-link delete"  onclick="return confirm('本当に削除しますか?')">削除</a></td>
           </tr>
         @endforeach
