@@ -9,4 +9,15 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 class IncomeSource extends Model
 {
     use HasFactory;
+
+    public function incomes()
+    {
+        return $this->hasMany(Income::class);
+    }
+
+    public function delete()
+    {
+        $this->incomes()->delete();
+        return Parent::delete();
+    }
 }

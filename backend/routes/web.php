@@ -82,8 +82,8 @@ Route::post('/income-source', [IncomeSourceController::class, 'store'])
 // Route::post('/income-source/edit', [CategoryController::class, 'update'])
 //     ->name('category.update');
 // 収入削除
-// Route::get('/income-source/delete/{category}', [CategoryController::class, 'destroy'])
-//     ->name('category.destroy');
+Route::get('/income-source/delete/{incomeSource}', [IncomeSourceController::class, 'destroy'])
+    ->name('incomeSource.destroy');
 
 Auth::routes();
 

@@ -48,7 +48,7 @@
             <tr>
               <td>{{ $incomeSource->name }}</td>
               {{-- <td><a href="{{ route('incomeSource.edit', ['income-source' => $incomeSource]) }}" class="table-link edit">編集</a></td> --}}
-              {{-- <td><a href="{{ route('incomeSource.destroy', ['income-source' => $incomeSource]) }}" onclick="return confirm('指定されたカテゴリに分類されている支出も削除されます。削除してよろしいですか？')"　class="table-link delete">削除</a></td> --}}
+              <td><a href="{{ route('incomeSource.destroy', ['incomeSource' => $incomeSource]) }}" onclick="return confirm('指定された収入源に分類されている収入も削除されます。削除してよろしいですか？')" class="table-link delete">削除</a></td>
             </tr>
           @endforeach
         @endif
