@@ -80,18 +80,18 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'income-source', 'as' => 'incomeSource.'], function () {
         // 収入源トップ
         Route::get('/', [IncomeSourceController::class, 'show'])
-        ->name('incomeSource.top');
+        ->name('top');
         // 収入登録
         Route::post('/', [IncomeSourceController::class, 'store'])
-            ->name('incomeSource');
+            ->name('top');
         //収入編集
         Route::get('/edit/{incomeSource}', [IncomeSourceController::class, 'edit'])
-            ->name('incomeSource.edit');
+            ->name('edit');
         Route::post('/edit', [IncomeSourceController::class, 'update'])
-            ->name('incomeSource.update');
+            ->name('update');
         // 収入削除
         Route::get('/delete/{incomeSource}', [IncomeSourceController::class, 'destroy'])
-            ->name('incomeSource.destroy');
+            ->name('destroy');
     });
 });
 
