@@ -8,7 +8,10 @@
             <li class="list-item"><a href="{{ route('incomeSource.top') }}" class="list-item-link">収入源リスト</a></li>
             <li class="list-item"><a href="{{ route('spendings.top') }}" class="list-item-link">支出TOP</a></li>
             <li class="list-item"><a href="{{ route('category.top') }}" class="list-item-link">カテゴリ</a></li>
-            <li class="list-item"><a href="" class="list-item-link">ログアウト</a></li>
+            <li class="list-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="list-item-link">ログアウト</a></li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </ul>
     </nav>
 </header>
